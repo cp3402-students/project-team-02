@@ -6,6 +6,6 @@ Based on starter theme <code>_s</code> which can be found [here](https://github.
 ### Contributors
 
 * Ayla Gunawan
-* 
+* Antony Hockin
 * 
 * 
