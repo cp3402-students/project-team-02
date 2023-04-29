@@ -1,7 +1,16 @@
 // stylelint-disable value-keyword-case
 $font__main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-// stylelint-enable value-keyword-case
+ //stylelint-enable value-keyword-case
 $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;700&family=Rokkitt:wght@100;400;700&family=Rye&display=swap');
+
+// Custom fonts
+$font__text: 'Rokkitt', Georgia, Cambria, Times, serif;
+$font__heading: 'Caveat Brush', 'Caveat', 'Lobster', 'Comic Sans MS', cursive, serif;
+//$font__heading: 'Caveat', 'Lobster', 'Comic Sans MS', cursive, serif;
+//$font__title: 'Caveat Brush', 'Caveat', 'Lobster', 'Comic Sans MS', cursive, serif;
+$font__title: 'Rye', 'Caveat', 'Lobster', 'Comic Sans MS', cursive, serif;
