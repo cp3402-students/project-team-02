@@ -22,8 +22,8 @@
 }
 
 .site-branding {
-	min-height: 100px;
 	display: flex;
+	min-height: 100px;
 }
 
 .custom-logo {
@@ -49,7 +49,7 @@
 	line-height: 1em;
 
 	a {
-		color: $color__1;
+		color: white;
 		text-decoration: none;
 
 		&:hover,
@@ -64,21 +64,16 @@
 	font-size: .9em;
 	font-style: italic;
 	font-weight: 100;
-	color: $color__1;
+	color: white;
 }
 
-@media screen and (min-width: $query__medium) {
+@media screen and (min-width: $query__small) {
 	.site-header {
-		//display: flex;
+		display: flex;
 		justify-content: space-between;
 	}
 
 	.site-branding {
-		width: 100%;
-		flex: 1 0 auto;
-	}
-
-	.site-navigation {
 		width: 100%;
 		flex: 1 0 auto;
 	}

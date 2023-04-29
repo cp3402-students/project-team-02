@@ -49,7 +49,7 @@ function countrytheme_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'countrytheme' ),
+			'menu-1' => esc_html__( 'Header', 'countrytheme' ),
 		)
 	);
 
@@ -144,7 +144,11 @@ function countrytheme_scripts() {
 	wp_enqueue_style( 'countrytheme-style', get_stylesheet_uri(), array(), countrytheme_VERSION );
 	wp_style_add_data( 'countrytheme-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'countrytheme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), countrytheme_VERSION, true );
+	wp_enqueue_script( 'countrytheme-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), countrytheme_VERSION, true );
+    wp_localize_script( 'countrytheme-navigation', 'countrythemeScreenReaderText', array(
+        'expand' => __( 'Expand child menu', 'countrytheme'),
+        'collapse' => __( 'Collapse child menu', 'countrytheme')
+    ));
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
