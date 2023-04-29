@@ -5,7 +5,7 @@ input[type="submit"] {
 	border: 1px solid $color__border-button;
 	background: transparent;
 	color: black;
-	font-family: $font__serif;
+	font-family: $font__text;
 	@include font-size(1);
 	line-height: 1;
 	padding: .5em 1em;

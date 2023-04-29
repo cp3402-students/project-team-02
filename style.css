@@ -48,6 +48,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;700&family=Rokkitt:wght@100;400;700&family=Rye&display=swap");
 /*--------------------------------------------------------------
 # Generic
 --------------------------------------------------------------*/
@@ -394,7 +395,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: "PT Serif", Georgia, Cambria, Times, serif;
+	font-family: "Rokkitt", Georgia, Cambria, Times, serif;
 	font-size: 18px;
 	font-size: 1.125rem;
 	line-height: 1.5;
@@ -418,11 +419,12 @@ h4,
 h5,
 h6 {
 	clear: both;
-	font-family: "PT Serif", Georgia, Cambria, Times, serif;
+	font-family: "Caveat Brush", "Caveat", "Lobster", "Comic Sans MS", cursive, serif;
 }
 
 h1 {
 	font-size: 3em;
+	font-family: "Rye", "Caveat", "Lobster", "Comic Sans MS", cursive, serif;
 }
 
 h2 {
@@ -585,7 +587,7 @@ input[type=submit] {
 	border: 1px solid #ccc #ccc #bbb;
 	background: transparent;
 	color: black;
-	font-family: "PT Serif", Georgia, Cambria, Times, serif;
+	font-family: "Rokkitt", Georgia, Cambria, Times, serif;
 	font-size: 20px;
 	font-size: 1.25rem;
 	line-height: 1;
@@ -673,7 +675,7 @@ textarea {
 .main-navigation {
 	display: block;
 	width: 100%;
-	font-family: "PT Serif", Georgia, Cambria, Times, serif;
+	font-family: "Rokkitt", Georgia, Cambria, Times, serif;
 	font-weight: 400;
 	clear: left;
 }
@@ -973,7 +975,7 @@ button.dropdown-toggle {
 .site-header {
 	position: relative;
 	padding: 2em;
-	font-family: "PT Serif", Georgia, Cambria, Times, serif;
+	font-family: "Rokkitt", Georgia, Cambria, Times, serif;
 	color: #fff;
 	background-color: #df8d43;
 	-ms-flex-wrap: wrap;
@@ -1031,7 +1033,7 @@ button.dropdown-toggle {
 
 .site-description {
 	margin: 0;
-	font-size: 0.9em;
+	font-size: 1em;
 	font-style: italic;
 	font-weight: 100;
 	color: white;

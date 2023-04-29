@@ -139,7 +139,7 @@ add_action( 'widgets_init', 'countrytheme_widgets_init' );
  */
 function countrytheme_scripts() {
     // Enqueu Google Fonts:
-    wp_enqueue_style('countrytheme-fonts', "https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+    wp_enqueue_style('countrytheme-fonts', "https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;700&family=Rokkitt:wght@100;400;700&family=Rye&display=swap");
 
 	wp_enqueue_style( 'countrytheme-style', get_stylesheet_uri(), array(), countrytheme_VERSION );
 	wp_style_add_data( 'countrytheme-style', 'rtl', 'replace' );
