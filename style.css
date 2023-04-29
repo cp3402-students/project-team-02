@@ -888,21 +888,57 @@ textarea {
 
 /* Header
 --------------------------------------------- */
+.header-image {
+	max-height: 60vw;
+	overflow: hidden;
+}
+.header-image img {
+	display: block;
+	width: 100vw;
+}
+
 .site-header {
 	position: relative;
-	padding: 1em;
+	padding: 2em;
 	font-family: "PT Serif", Georgia, Cambria, Times, serif;
 	color: #fff;
-	background-color: #002254;
+	background-color: #df8d43;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 }
 @media screen and (min-width: 600px) {
 	.site-header {
-		padding: 1em 2em;
+		padding: 2em 3em;
 	}
 }
 
 .site-branding {
-	min-height: 65px;
+	min-height: 100px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.custom-logo {
+	min-width: 100px;
+}
+.custom-logo img {
+	display: block;
+}
+
+.site-branding__text {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	height: 100px;
+	margin-left: 2em;
 }
 
 .site-title {
@@ -913,7 +949,7 @@ textarea {
 	line-height: 1em;
 }
 .site-title a {
-	color: white;
+	color: #e6d7d1;
 	text-decoration: none;
 }
 .site-title a:hover, .site-title a:focus {
@@ -925,25 +961,28 @@ textarea {
 	font-size: 0.9em;
 	font-style: italic;
 	font-weight: 100;
+	color: #e6d7d1;
 }
 
 @media screen and (min-width: 900px) {
 	.site-header {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
 		-webkit-box-pack: justify;
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;
 	}
 	.site-branding {
-		width: 35%;
+		width: 100%;
+		-webkit-box-flex: 1;
+		    -ms-flex: 1 0 auto;
+		        flex: 1 0 auto;
 	}
 	.site-navigation {
-		width: 65%;
+		width: 100%;
+		-webkit-box-flex: 1;
+		    -ms-flex: 1 0 auto;
+		        flex: 1 0 auto;
 	}
-}
-/* Widgets
+} /* Widgets
 --------------------------------------------- */
 .widget {
 	margin: 0 0 1.5em;

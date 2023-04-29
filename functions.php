@@ -93,10 +93,10 @@ function countrytheme_setup() {
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
+			'height'      => 100,
+			'width'       => 100,
+			'flex-width'  => false,
+			'flex-height' => false,
 		)
 	);
 }
