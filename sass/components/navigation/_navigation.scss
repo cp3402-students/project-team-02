@@ -186,3 +186,26 @@ button.dropdown-toggle {
 		flex: 1 0 50%;
 	}
 }
+
+// temp
+.footer-navigation {
+	ul {
+		display: flex;
+		justify-content: center;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		a {
+			display: block;
+			padding: .5em 1em;
+			color: white;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
+		}
+	}
+}

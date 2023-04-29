@@ -831,6 +831,27 @@ button.dropdown-toggle {
 	        flex: 1 0 50%;
 }
 
+.footer-navigation ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.footer-navigation ul a {
+	display: block;
+	padding: 0.5em 1em;
+	color: white;
+	text-decoration: none;
+}
+.footer-navigation ul a:hover, .footer-navigation ul a:focus {
+	text-decoration: underline;
+}
+
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
@@ -976,7 +997,7 @@ button.dropdown-toggle {
 	position: relative;
 	padding: 2em;
 	font-family: "Rokkitt", Georgia, Cambria, Times, serif;
-	color: #fff;
+	color: white;
 	background-color: #df8d43;
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
@@ -1055,6 +1076,22 @@ button.dropdown-toggle {
 		        flex: 1 0 auto;
 	}
 }
+/* Footer
+--------------------------------------------- */
+.site-footer {
+	position: relative;
+	padding: 2em;
+	font-family: "Rokkitt", Georgia, Cambria, Times, serif;
+	color: white;
+	background-color: #df8d43;
+	text-align: center;
+}
+@media screen and (min-width: 600px) {
+	.site-footer {
+		padding: 2em 3em;
+	}
+}
+
 /* Widgets
 --------------------------------------------- */
 .widget {

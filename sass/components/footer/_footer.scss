@@ -1,0 +1,12 @@
+.site-footer {
+  position: relative;
+  padding: 2em;
+  font-family: $font__text;
+  color: white;
+  background-color: $color__skin;
+  text-align: center;
+
+  @media screen and (min-width: $query__small) {
+    padding: 2em 3em;
+  }
+}
