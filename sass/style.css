@@ -557,13 +557,13 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-  color: #4169e1;
+  color: #000;
 }
 a:visited {
-  color: #800080;
+  color: 0;
 }
 a:hover, a:focus, a:active {
-  color: #191970;
+  color: #b51c35;
 }
 a:focus {
   outline: thin dotted;
@@ -871,7 +871,7 @@ button.dropdown-toggle {
   margin: 0 0.5em;
 }
 
-.comment-link::before,
+.comments-link::before,
 .edit-link::before {
   content: "|";
   margin: 0 0.5em;
