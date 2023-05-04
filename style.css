@@ -1092,6 +1092,18 @@ button.dropdown-toggle {
 	}
 }
 
+/* Archive
+--------------------------------------------- */
+.archive-view {
+	background-color: #e6d7d1;
+}
+.archive-view .post {
+	background: white;
+}
+.archive-view .post__content {
+	padding: 2em;
+}
+
 /* Widgets
 --------------------------------------------- */
 .widget {
