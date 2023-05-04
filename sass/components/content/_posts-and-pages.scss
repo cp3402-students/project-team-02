@@ -2,6 +2,36 @@
 	display: block;
 }
 
+//.entry-header{
+//	font-family: $font_sans;
+//}
+
+.cat-links{
+	font-size: 90%;
+	font-weight: 700;
+
+	a{
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $color__interactive;
+
+		&:focus,
+			&:hover{
+			background-color: $color__interactive;
+			color: white;
+		}
+	}
+}
+
+.entry-title{
+	margin: .125em 0 .25em;
+	font-size: 2.5em;
+	
+
+		
+
+}
+
 .post,
 .page {
 	margin: 0 0 1.5em;
