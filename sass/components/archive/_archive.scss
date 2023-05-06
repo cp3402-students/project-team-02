@@ -1,11 +1,90 @@
 .archive-view {
   background-color: $color__1;
 
-  .post {
+  .post,
+  .page {
+    position: relative;
     background: white;
   }
 
   .post__content {
     padding: 2em;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.continue-reading {
+  font-family: $font__text;
+  float: right;
+  margin: 1em .5em;
+
+  a {
+    padding: 1em 1em;
+    text-decoration: none;
+    color: $color__2;
+    background: $color__3;
+    //position: absolute;
+    //bottom: 0;
+    //right: 0;
+
+    &:focus,
+    &:hover {
+      color: white;
+      background: $color__4;
+    }
+  }
+
+}
+
+.sticky::before {
+  content: "";
+  display: block;
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 2em 2em 0;
+  border-color: $color__1 $color__1 white;
+  border-style: solid;
+  box-shadow: -1px 2px 2px hsla(0, 0%, 10%, 10%);
+}
+
+.page-header {
+  font-family: $font__text;
+}
+
+.page-title {
+  margin: 0 0 .5em;
+}
+
+.archive-description {
+  margin: -1em 0 2em;
+}
+
+/* For content-none.php */
+.search,
+.error-404 {
+
+  .page-content {
+    margin-bottom: 2em;
+    padding: 2em;
+    font-family: $font__text;
+    color: white;
+    background: $color__4;
+  }
+
+  input[type="search"] {
+    padding: .5em;
+  }
+  input[type="submit"] {
+    border-color: white;
+    color: white;
+
+    &:focus,
+    &:hover {
+      color: black;
+    }
   }
 }

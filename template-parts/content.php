@@ -35,36 +35,42 @@
 
 		<div class="entry-content">
 			<?php
-			the_content(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'countrytheme' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post( get_the_title() )
-				)
-			);
+			the_excerpt();
 
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'countrytheme' ),
-					'after'  => '</div>',
-				)
-			);
+//			the_content(
+//				sprintf(
+//					wp_kses(
+//						/* translators: %s: Name of current post. Only visible to screen readers */
+//						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'countrytheme' ),
+//						array(
+//							'span' => array(
+//								'class' => array(),
+//							),
+//						)
+//					),
+//					wp_kses_post( get_the_title() )
+//				)
+//			);
+//
+//			wp_link_pages(
+//				array(
+//					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'countrytheme' ),
+//					'after'  => '</div>',
+//				)
+//			);
 			?>
 		</div><!-- .entry-content -->
 
-		<div class="read-more">
+		<footer class="entry-footer">
+			<?php countrytheme_entry_footer(); ?>
+		</footer>
+
+		<div class="continue-reading">
 			<?php
 			$read_more_link = sprintf(
 				wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'countrytheme' ),
+					__( 'Read More<span class="screen-reader-text"> "%s"</span>', 'countrytheme' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -78,10 +84,6 @@
 				<?php echo $read_more_link; ?>
 			</a>
 		</div>
-
-<!--		<footer class="entry-footer">-->
-<!--			--><?php //countrytheme_entry_footer(); ?>
-<!--		</footer>-->
 
 	</div>
 </article><!-- #post-<?php the_ID(); ?> -->

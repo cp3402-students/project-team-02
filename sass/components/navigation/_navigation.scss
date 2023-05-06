@@ -209,3 +209,35 @@ button.dropdown-toggle {
 		}
 	}
 }
+
+.pagination {
+	font-family: $font__text;
+
+	.nav-links {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	a,
+	span {
+		color: $color__2;
+		padding: .5em 1em;
+		background: white;
+	}
+
+	a {
+		text-decoration: none;
+
+		&:focus,
+		&:hover {
+			color: white;
+			background: $color__4;
+		}
+	}
+
+	.current {
+		font-weight: 600;
+		background: $color__3;
+	}
+}

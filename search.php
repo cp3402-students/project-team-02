@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="<?php if ( have_posts() ) { echo 'site-main'; } else { echo ''; } ?>">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -37,11 +37,16 @@ get_header();
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_pagination( array(
+				"prev_text" => __("Newer", "countrytheme"),
+				"next_text" => __("Older", "countrytheme"),
+				"before_page_number" => "<span class='screen-reader-text'>" . __("Page ", "countrytheme") . "</span>"
+			));
 
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
+
 
 		endif;
 		?>

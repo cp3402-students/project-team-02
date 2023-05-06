@@ -163,3 +163,20 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+function countrytheme_excerpt_more($more) {
+	/**
+	 * Customise excerpt end string.
+	 */
+	return "...";
+}
+
+function countrytheme_excerpt_length($length) {
+	/**
+	 * Customise excerpt length.
+	 */
+	return 100;
+}
+
+add_filter("excerpt_more", "countrytheme_excerpt_more");
+add_filter("excerpt_length", "countrytheme_excerpt_length");
