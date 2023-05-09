@@ -91,3 +91,23 @@
 	clear: both;
 	margin: 0 0 1.5em;
 }
+
+/* Single Post Featured Images */
+
+.full-bleed {
+	width: 100vw;
+	max-height: 1000px;
+
+	margin-right: calc( ((-100vw + #{$size__site-main})/2) );
+	margin-left: calc( ((-100vw + #{$size__site-main})/2) );
+
+	margin-top: 1em;
+	border-top: 1px solid hsl(0, 0%, 90%);
+	border-bottom: 1px solid hsl(0, 0%, 90%);
+	overflow: hidden;
+
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+}

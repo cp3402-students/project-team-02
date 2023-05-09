@@ -10,7 +10,17 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<?php $post_link = esc_url( get_permalink() ) ?>
 	<div class="post__content">
+
+		<?php if (has_post_thumbnail()) : ?>
+			<figure class="featured-image index-image">
+				<a href="<?php echo $post_link ?>" rel="bookmark">
+				<?php the_post_thumbnail('countrytheme-index-image'); ?>
+				</a>
+			</figure>
+		<?php endif; ?>
 
 		<header class="entry-header">
 			<?php countrytheme_the_category_lists(); ?>
@@ -32,39 +42,11 @@
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<?php countrytheme_post_thumbnail(); ?>
-
 		<div class="entry-content">
 			<?php
 			the_excerpt();
-
-			//			the_content(
-			//				sprintf(
-			//					wp_kses(
-			//						/* translators: %s: Name of current post. Only visible to screen readers */
-			//						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'countrytheme' ),
-			//						array(
-			//							'span' => array(
-			//								'class' => array(),
-			//							),
-			//						)
-			//					),
-			//					wp_kses_post( get_the_title() )
-			//				)
-			//			);
-			//
-			//			wp_link_pages(
-			//				array(
-			//					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'countrytheme' ),
-			//					'after'  => '</div>',
-			//				)
-			//			);
 			?>
 		</div><!-- .entry-content -->
-
-		<!--		<footer class="entry-footer">-->
-		<!--			--><?php //countrytheme_entry_footer(); ?>
-		<!--		</footer>-->
 
 		<div class="continue-reading">
 			<?php

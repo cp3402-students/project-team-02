@@ -8,7 +8,7 @@
   }
 
   .post__content {
-    padding: 2em;
+    padding: 0 2em 2em 2em;
     position: relative;
     overflow: hidden;
   }
@@ -24,9 +24,6 @@
     text-decoration: none;
     color: $color__2;
     background: $color__3;
-    //position: absolute;
-    //bottom: 0;
-    //right: 0;
 
     &:focus,
     &:hover {
@@ -37,7 +34,7 @@
 
 }
 
-.sticky::before {
+.sticky::after {
   content: "";
   display: block;
   width: 2em;
@@ -85,6 +82,32 @@
     &:focus,
     &:hover {
       color: black;
+    }
+  }
+}
+
+.figure {
+
+}
+
+.index-image {
+  width: 100vw;
+  max-height: 1000px;
+  border-top: 1px solid hsl(0, 0%, 90%);
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+  overflow: hidden;
+  margin-right: calc( ((-100vw + #{$size__site-main})/2) );
+  margin-left: calc( ((-100vw + #{$size__site-main})/2) );
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  a {
+    &:hover > img,
+    &:focus > img {
+      opacity: .8;
     }
   }
 }
