@@ -26,19 +26,55 @@
 				countrytheme_posted_by();
 				countrytheme_posted_on();
 				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+				<div class="entry-meta">
+					<?php
+					countrytheme_posted_on();
+					countrytheme_posted_by();
+					?>
+				</div><!-- .entry-meta -->
+			<?php endif; ?>
+		</header><!-- .entry-header -->
 
-	<?php countrytheme_post_thumbnail(); ?>
+		<?php countrytheme_post_thumbnail(); ?>
 
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
+		<div class="entry-content">
+			<?php
+			the_excerpt();
+
+//			the_content(
+//				sprintf(
+//					wp_kses(
+//						/* translators: %s: Name of current post. Only visible to screen readers */
+//						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'countrytheme' ),
+//						array(
+//							'span' => array(
+//								'class' => array(),
+//							),
+//						)
+//					),
+//					wp_kses_post( get_the_title() )
+//				)
+//			);
+//
+//			wp_link_pages(
+//				array(
+//					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'countrytheme' ),
+//					'after'  => '</div>',
+//				)
+//			);
+			?>
+		</div><!-- .entry-content -->
+
+		<footer class="entry-footer">
+			<?php countrytheme_entry_footer(); ?>
+		</footer>
+
+		<div class="continue-reading">
+			<?php
+			$read_more_link = sprintf(
 				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'countrytheme' ),
+				/* translators: %s: Name of current post. Only visible to screen readers */
+					__( 'Read More<span class="screen-reader-text"> "%s"</span>', 'countrytheme' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -47,18 +83,11 @@
 				),
 				wp_kses_post( get_the_title() )
 			)
-		);
+			?>
+			<a href="<?php esc_url( get_permalink() ) ?>" rel="bookmark">
+				<?php echo $read_more_link; ?>
+			</a>
+		</div>
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'countrytheme' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php countrytheme_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	</div>
 </article><!-- #post-<?php the_ID(); ?> -->

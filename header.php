@@ -30,16 +30,8 @@
 			<?php
 			the_custom_logo();?>
 			<div class="site-branding__text">
-			<?php
-			if ( is_front_page() && is_home() ) :
-				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
+			<?php
 			$countrytheme_description = get_bloginfo( 'description', 'display' );
 			if ( $countrytheme_description || is_customize_preview() ) :
 				?>
@@ -54,7 +46,7 @@
 			wp_nav_menu(
 				array(
 					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
+					'menu_id'        => 'header-menu',
 				)
 			);
 			?>
