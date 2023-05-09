@@ -1,6 +1,6 @@
 # Deployment
 
-The following document contains the developer operations and procedures for the WordPress custom theme _Country Theme_ made by CP3402 Project Team 02. The document will walk through the recommended usage of development environments, developer tools/software and other managerial activities in an effort to provide a simple, repeatable workflow.
+The following document contains the developer operations and deployment procedures for the WordPress custom theme _Country Theme_ made by CP3402 Project Team 02. The document will walk through the recommended development environment processes, developer tools/software and other managerial activities in an effort to provide a simple, repeatable workflow.
 
 ## Development Environments
 
@@ -70,11 +70,12 @@ The following document contains the developer operations and procedures for the 
 
 communicate
 assign tasks/branches
-trello
+trello members + deadlines
 
 ### Version Control
 
-different dev branches
+different dev branches, delete when finished
+communicate when making big changes
 
 ### Additional Notes
 

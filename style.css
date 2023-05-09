@@ -563,13 +563,13 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-	color: #000;
+	color: #415e79;
 }
 a:visited {
-	color: 0;
+	color: #0e0809;
 }
 a:hover, a:focus, a:active {
-	color: #b51c35;
+	color: #f7b84d;
 }
 a:focus {
 	outline: thin dotted;
@@ -659,11 +659,11 @@ textarea {
 # Layouts
 --------------------------------------------------------------*/
 .site-main {
-	padding: 1em;
+	padding: 3em;
 }
 @media screen and (min-width: 600px) {
 	.site-main {
-		padding: 2em;
+		padding: 10em;
 	}
 }
 
@@ -881,22 +881,6 @@ button.dropdown-toggle {
 .pagination .current {
 	font-weight: 600;
 	background: #f7b84d;
-
-.page-content a,
-.entry-content a,
-.entry-summary a,
-.comment-content a {
-	text-decoration: none;
-	border-bottom: 3px solid #b51c35;
-}
-.page-content a:focus, .page-content a:hover,
-.entry-content a:focus,
-.entry-content a:hover,
-.entry-summary a:focus,
-.entry-summary a:hover,
-.comment-content a:focus,
-.comment-content a:hover {
-	color: #b51c35;
 }
 
 /* Posts and pages
@@ -913,10 +897,10 @@ button.dropdown-toggle {
 .cat-links a {
 	text-decoration: none;
 	text-transform: uppercase;
-	color: #b51c35;
+	color: #415e79;
 }
 .cat-links a:focus, .cat-links a:hover {
-	background-color: #b51c35;
+	background-color: #415e79;
 	color: white;
 }
 
@@ -933,7 +917,7 @@ button.dropdown-toggle {
 	text-decoration: none;
 }
 .entry-title a:focus, .entry-title a:hover {
-	border-bottom: 5px solid #b51c35;
+	border-bottom: 5px solid #415e79;
 	color: black;
 }
 
@@ -947,7 +931,7 @@ button.dropdown-toggle {
 }
 .entry-meta a:focus, .entry-meta a:hover {
 	color: black;
-	border-bottom: 3px solid #b51c35;
+	border-bottom: 3px solid #415e79;
 }
 
 .byline::after {

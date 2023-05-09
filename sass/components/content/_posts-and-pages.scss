@@ -3,10 +3,6 @@
 	position: relative;
 }
 
-//.entry-header{
-//	font-family: $font_sans;
-//}
-
 .cat-links{
 	font-size: 90%;
 	font-weight: 700;
@@ -14,11 +10,11 @@
 	a{
 		text-decoration: none;
 		text-transform: uppercase;
-		color: $color__interactive;
+		color: $color__4;
 
 		&:focus,
 			&:hover{
-			background-color: $color__interactive;
+			background-color: $color__4;
 			color: white;
 		}
 	}
@@ -39,7 +35,7 @@
 
 		&:focus,
 			&:hover{
-			border-bottom: 5px solid $color__interactive;
+			border-bottom: 5px solid $color__4;
 			color: black;
 		}
 	}
@@ -55,7 +51,7 @@
 		&:focus,
 			&:hover{
 			color:black;
-			border-bottom: 3px solid $color__interactive;
+			border-bottom: 3px solid $color__4;
 
 		}
 	}
