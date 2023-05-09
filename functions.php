@@ -150,7 +150,10 @@ function countrytheme_scripts() {
         'collapse' => __( 'Collapse child menu', 'countrytheme')
     ));
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+//    wp_enqueue_script( 'countrytheme-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), countrytheme_VERSION, true );
+
+
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }

@@ -11,6 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+		<?php countrytheme_the_category_lists(); ?>
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -22,8 +23,8 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				countrytheme_posted_on();
 				countrytheme_posted_by();
+				countrytheme_posted_on();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
