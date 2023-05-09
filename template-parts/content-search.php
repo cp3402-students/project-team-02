@@ -10,7 +10,14 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 	<div class="post__content">
+
+		<?php if (has_post_thumbnail()) : ?>
+			<figure class="featured-image index-image">
+				<?php the_post_thumbnail('countrytheme-index-image'); ?>
+			</figure>
+		<?php endif; ?>
 
 		<header class="entry-header">
 			<?php
@@ -30,8 +37,6 @@
 			</div><!-- .entry-meta -->
 			<?php endif; ?>
 		</header><!-- .entry-header -->
-
-		<?php countrytheme_post_thumbnail(); ?>
 
 		<div class="entry-summary">
 			<?php the_excerpt(); ?>

@@ -45,6 +45,8 @@ function countrytheme_setup() {
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
 	add_theme_support( 'post-thumbnails' );
+    add_image_size( 'countrytheme-full-bleed', 1800, 1000, true);
+    add_image_size( 'countrytheme-index-image', 1800, 400, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(

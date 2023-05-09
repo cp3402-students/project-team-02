@@ -9,10 +9,6 @@ $color__interactive: #b51c35;
 $color__text-screen: #000;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: #000;
-$color__link-visited: 000;
-$color__link-hover: $color__interactive;
-$color__text-main: #000;
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;
@@ -21,8 +17,14 @@ $color__border-input: #ccc;
 $color__border-abbr: #666;
 
 // custom colors
-$color__skin: #df8d43; // header, #002254
+$color__skin: #df8d43; // header
 $color__1: #e6d7d1;
 $color__2: #0e0809;
 $color__3: #f7b84d;
 $color__4: #415e79;
+
+// links colours
+$color__link: $color__4;
+$color__link-visited: $color__4;
+$color__link-hover: $color__3;
+$color__text-main: $color__2;
