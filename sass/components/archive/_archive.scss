@@ -7,8 +7,14 @@
     background: white;
   }
 
-  .post__content {
+  .has-post-thumbnail .post__content {
     padding: 0 2em 2em 2em;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .post__content {
+    padding: 2em;
     position: relative;
     overflow: hidden;
   }

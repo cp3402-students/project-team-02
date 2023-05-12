@@ -1201,8 +1201,13 @@ button.dropdown-toggle {
 	position: relative;
 	background: white;
 }
-.archive-view .post__content {
+.archive-view .has-post-thumbnail .post__content {
 	padding: 0 2em 2em 2em;
+	position: relative;
+	overflow: hidden;
+}
+.archive-view .post__content {
+	padding: 2em;
 	position: relative;
 	overflow: hidden;
 }

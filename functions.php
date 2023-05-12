@@ -102,6 +102,11 @@ function countrytheme_setup() {
 			'flex-height' => false,
 		)
 	);
+
+    // Add custom page templates
+//    attach_template_to_page( 'Magazine', '/page-templates/magazine-template.php' );
+//    attach_template_to_page( 'Events', '/page-templates/events-template.php' );
+//    attach_template_to_page( 'Gallery', '/page-templates/gallery-template.php' );
 }
 add_action( 'after_setup_theme', 'countrytheme_setup' );
 
@@ -195,3 +200,76 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * Attaches the specified template to the page identified by the specified name.
+ *
+ * @params    $page_name        The name of the page to attach the template.
+ * @params    $template_path    The template's filename (assumes .php' is specified)
+ *
+ * @returns   -1 if the page does not exist; otherwise, the ID of the page.
+ */
+function attach_template_to_page( $page_name, $template_file_name ): int
+{
+
+    // Look for the page by the specified title. Set the ID to -1 if it doesn't exist.
+    // Otherwise, set it to the page's ID.
+
+    $query = new WP_Query(
+        array(
+            'post_type'              => 'page',
+            'title'                  => $page_name,
+            'post_status'            => 'all',
+            'posts_per_page'         => 1,
+            'no_found_rows'          => true,
+            'ignore_sticky_posts'    => true,
+            'update_post_term_cache' => false,
+            'update_post_meta_cache' => false,
+            'orderby'                => 'post_date ID',
+            'order'                  => 'ASC',
+        )
+    );
+
+    if ( ! empty( $query->post ) ) {
+        $page_got_by_title = $query->post;
+    } else {
+        $page_got_by_title = null;
+    }
+
+    $page = $page_got_by_title;
+    $page_id = null == $page ? -1 : $page->ID;
+
+    // Only attach the template if the page exists
+    if( -1 != $page_id ) {
+        update_post_meta( $page_id, '_wp_page_template', $template_file_name );
+    } // end if
+
+    return $page_id;
+
+} // end attach_template_to_page
+
+/**
+ * Attaches the archive-view class to the body of custom page.
+ *
+ * @params    $classes          The original array of classes.
+ *
+ * @returns   null if the page does not exist; otherwise, the modified classes array.
+ */
+function add_archive_class_to_custom_pages($classes): array
+{
+    // add class to the classes array of custom pages
+    if ( is_page( 'Magazine' ) ) {
+        $classes[] = 'archive-view';
+    }
+    if ( is_page( 'Events' ) ) {
+        $classes[] = 'archive-view';
+    }
+    if ( is_page( 'Gallery' ) ) {
+        $classes[] = 'archive-view';
+    }
+
+    // return the modified $classes array
+    return $classes;
+}
+// add via body_class filter
+add_filter('body_class', 'add_archive_class_to_custom_pages');
