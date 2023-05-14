@@ -1,41 +1,46 @@
 # Deployment
 
-The following document contains the developer operations and deployment procedures for the WordPress custom theme _Country Theme_ made by CP3402 Project Team 02. The document will walk through the recommended development environment processes, developer tools/software and other managerial activities in an effort to provide a simple, repeatable workflow.
+The following document contains the developer operations and deployment procedures for the _WordPress_ custom theme _Country Theme_ made by CP3402 Project Team 02. The document will walk through the recommended development environment processes, developer tools/software and other managerial activities in an effort to provide a simple, repeatable workflow.
 
-## Development Environments
+## Local Development
 
-### Local Development
+The local development software that will be used is _Local by Flywheel_, a free virtual machine platform designed for locally hosting _WordPress_ sites. It has systems in place for administration, SSL and databasing that are simplified for beginners.
 
-The chosen local development environment is _Local by Flywheel_, a free VM-based software designed for locally hosting WordPress sites. It has systems in place for administration, SSL and databasing that are simplified for beginners.
-
-#### Site Setup
+### Site Setup
 
 1. Download and install [_Local by Flywheel_](https://localwp.com/)
    1. See documentation [here](https://wpengine.com/resources/local-wordpress-development-environment-how-to/)
-2. Open the _Local by Flywheel_ dashboard and add a new local site
+2. Add a new local site in _Local by Flywheel_
    1. Take note of the local site's directory
-   2. Take note of the WordPress admin details
+   2. Take note of the _WordPress Admin_ details
 3. Click `Trust` for the local site's SSL
-4. Start the local site and open it in WP Admin
+4. Start the local site
+5. Open _WordPress Admin_ by adding `/wp-admin/` to the URL or clicking `WP Admin` in _Local by Flywheel_
+6. Log in with the _WordPress Admin_ details
+7. Install and activate the plugins [_Debug Bar_](https://wordpress.org/plugins/debug-bar/), [_Regenerate Thumbnails_](https://en-au.wordpress.org/plugins/regenerate-thumbnails/), [_Show Current Template_](https://wordpress.org/plugins/show-current-template/) and [_Theme Check_](https://wordpress.org/plugins/theme-check/)
+8. If migrating from another site, import the XML in `Tools -> Import`
+   1. See documentation [here](https://wpengine.com/support/sync-new-post-and-pages/)
+9. If migrating to another site, export the XML in `Tools -> Export`
 
-Proceed to [site.md]() for information about managing WordPress sites.
+Proceed to [site.md]() for information about managing _WordPress_ sites.
 
-#### Theme Setup
+### Theme Setup
 
 1. Download and install git
    1. See documentation [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 2. Navigate to the local site's root folder `public` in the command-line by clicking `Open site shell` in _Local by Flywheel_
 3. Navigate to `public -> wp-content -> themes`
-4. Make a new folder called `countrytheme` and navigate into it
-5. Clone this repository by typing `git clone https://github.com/cp3402-students/project-team-02.git .`
-6. In the WP Admin dashboard, navigate to `Appearance -> Themes`
-7. Activate the theme _Country Theme_
+4. Clone this repository by typing `git clone https://github.com/cp3402-students/project-team-02.git countrytheme`
+   1. If using this theme for another purpose, clone a fork of this repository
+5. Navigate to `Appearance -> Themes` in _WordPress Admin_
+6. Activate the theme _Country Theme_
+7. If migrating to another site, zip the `countrytheme` folder
 
 Proceed to [theme.md]() for information about customising the theme.
 
-#### Version Control
+### Version Control
 
-GitHub Desktop is the recommended version control software for this project. Its user interface visualises and adds safety nets to the Git workflow for developers to make less mistakes in the command-line. PHPStorm is a professional IDE that supports the PHP language, but other platforms may be compatible.
+GitHub Desktop is the recommended version control tool for this project. Its user interface visualises and adds safety nets to the Git workflow so developers make less mistakes in the command-line. PHPStorm is a professional IDE that supports the PHP language, but other IDEs may also be compatible.
 
 1. Download and install [_GitHub Desktop_](https://desktop.github.com/)
    1. See documentation [here](https://docs.github.com/en/desktop)
@@ -47,15 +52,15 @@ GitHub Desktop is the recommended version control software for this project. Its
    1. Name the branch based on the changes/feature to be made, e.g. `header-dev`
 6. Open the local site's root folder `public` in _PHPStorm_
 7. Make changes to the files from `countrytheme` in _PHPStorm_
-8. Commit the changes in _GitHub Desktop_
-9. Push the commits in _GitHub Desktop_
-10. Merge commit the branch into `main` in _GitHub Desktop_ or remotely, deleting the branch
-    1. Communicate with teammates to approve of the merge and resolve conflicts
+8. Commit the changes and push in _GitHub Desktop_
+9. Merge commit the branch into `main` remotely
+   1. Communicate with teammates to approve the merge and resolve conflicts
+10. Delete the branch remotely
 11. Repeat steps 4-10 for every important change/feature
 
-#### Testing and Automation
+### Testing and Automation
 
-Task runners like Gulp allow for file observation and modification. By setting up WIP STYLING
+Task runners like Gulp allow for automatic file observation and modification. By syncing to the browser and constantly running watch functions, changes made to the Sass files will dynamically update the CSS stylesheet, making testing more effective.
 
 1. Install [Gulp](https://gulpjs.com/)
    1. See documentation [here](https://gulpjs.com/docs/en/getting-started/quick-start)
@@ -69,53 +74,82 @@ Task runners like Gulp allow for file observation and modification. By setting u
    1. This can also be done in _PHPStorm_'s built-in terminal
 8. Navigate to `public -> wp-content -> themes -> gulp-dev`
 9. Type the command `gulp` and view the _PHPStorm_-hosted site
-10. Perform testing by making changes in the browser and editing PHP and Sass files from `countrytheme` in _PHPStorm_
+10. Perform testing by making changes in the browser and editing `countrytheme` files in _PHPStorm_
 11. Type the command `Cmd/Ctrl + C` to terminate the Gulp session
 12. Repeat steps 7-11 for any theme-related testing
 
-#### Import and Export
+## Live Production
 
-* To retrieve WordPress content from a different environment, Tools -> Import -> .xml
-* To transfer WordPress content to a different environment, Tools -> Export -> .xml
+_Amazon Lightsail_ is a remote hosting solution provided by _Amazon Web Services_. It is the industry-standard for many IT companies, and it offers a variety of plans. Free Tier gives users 3 months free, unless the RAM usage exceeds the plan limit.
 
-### Live Production
+### Site Setup
 
-`wip`
+1. Make an account for [_Amazon Lightsail_](https://aws.amazon.com/free/compute/lightsail/https://aws.amazon.com/free/compute/lightsail/)
+2. Launch a _WordPress_ instance in _Amazon Lightsail_
+   1. See documentation [here](https://aws.amazon.com/getting-started/hands-on/launch-a-wordpress-website/)
+   2. Take note of the _WordPress Admin_ (Bitnami) details
+3. Open WordPress Admin by adding `/wp-admin/` to the URL
+4. Log in with the _WordPress Admin_ details
+5. Install and activate the plugins [_Debug Bar_](https://wordpress.org/plugins/debug-bar/), [_Regenerate Thumbnails_](https://en-au.wordpress.org/plugins/regenerate-thumbnails/), [_Show Current Template_](https://wordpress.org/plugins/show-current-template/) and [_Theme Check_](https://wordpress.org/plugins/theme-check/)
+6. If migrating from another site, import the XML in `Tools -> Import`
+   1. See documentation [here](https://wpengine.com/support/sync-new-post-and-pages/)
+7. If migrating to another site, export the XML in `Tools -> Export`
+8. If the instance is not in active use, `Stop` the instance in _Amazon Lightsail_
+9. If the instance is no longer needed, `Delete` the instance in _Amazon Lightsail_
 
-#### Setup
+### Theme Setup
 
-* AWS lightsail
-* Make a new instance (account creation, use default settings, set admin details)
-* https://aws.amazon.com/getting-started/hands-on/launch-a-wordpress-website/
+1. Navigate to `Appearance -> Themes` in _WordPress Admin_
+2. Upload and install a local zip of the `countrytheme` folder as a new theme
+   1. See step 7 of **Local Development: Theme Setup**
+   2. Alternatively, download this repository as a zip
+3. Activate the theme _Country Theme_
 
-#### Import and Export
+### Testing and Automation
 
-* To retrieve WordPress content from a different environment, Tools -> Import -> .xml
-* To transfer WordPress content to a different environment, Tools -> Export -> .xml
+Testing in a live production environment is discouraged because making changes may irreversibly break the site, making it inaccessible and/or incurring data loss. As such, limit testing to the local development environment before importing content to the live site. Automation can be achieved as follows:
 
-### Staging
+1. Toggle `Automatic Snapshots` from an instance's `Snapshots` tab in _Amazon Lightsail_ to save backups
+   1. This can be RAM-intensive and may require larger plans
+2. Activate WordPress plugins provided by _Amazon Lightsail_ that automate security, analysis and performance
+   1. e.g. _Akismet Anti-Spam: Spam Protection_, _Google Analytics for WordPress by MonsterInsights_ and _W3 Total Cache_
 
-`wip`
+## Staging
 
-#### Setup
+Similar to live production, **WIP**
 
-* AWS lightsail
-* Make a new instance again (use default settings, use different region)
+### Site Setup
 
-#### Testing
+1. Follow steps 1-5 of **Live Production: Site Setup**
+   1. Launch a new _WordPress_ instance separate from the live production, in a different Availability Zone
+2. Navigate to `Users -> Add New` in _WordPress Admin_
+3. Add user details according to the client's needs
+4. Securely send the user details to the client
+5. If migrating from another site, import the XML in `Tools -> Import`
+   1. See documentation [here](https://wpengine.com/support/sync-new-post-and-pages/)
+6. If migrating to another site, export the XML in `Tools -> Export`
+7. If the instance is not in active use, `Stop` the instance in _Amazon Lightsail_
+8. If the instance is no longer needed, `Delete` the instance in _Amazon Lightsail_
 
-* TESTING
+### Theme Setup
 
-#### Import and Export
+1. Navigate to `Appearance -> Themes` in _WordPress Admin_
+2. Upload and install a local zip of the `countrytheme` folder as a new theme
+   1. See step 7 of **Local Development: Theme Setup**
+   2. Alternatively, download this repository as a zip
+3. Activate the theme _Country Theme_
 
-* To retrieve WordPress content from a different environment, Tools -> Import -> .xml
-* To transfer WordPress content to a different environment, Tools -> Export -> .xml
+### Testing and Automation
+
+**WIP**
 
 ## Project Management
 
-`wip`
+**WIP**
 
 ### Communicating
+
+**WIP**
 
 communicate
 assign tasks/branches
@@ -123,5 +157,7 @@ trello members + deadlines
 stand-up meetings
 
 ### Additional Notes
+
+**WIP**
 
 notes
