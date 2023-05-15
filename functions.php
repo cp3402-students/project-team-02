@@ -46,7 +46,15 @@ function countrytheme_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
     add_image_size( 'countrytheme-full-bleed', 1800, 1000, true);
-    add_image_size( 'countrytheme-index-image', 1800, 400, true);
+    add_image_size( 'countrytheme-index-image', 1800, 500, true);
+
+    add_theme_support( 'custom-background' );
+    add_theme_support('custom-line-height');
+    add_theme_support( 'custom-spacing' );
+    add_theme_support('custom-units');
+    add_theme_support('responsive-embeds');
+    add_theme_support( 'wp-block-styles' );
+    add_theme_support( 'appearance-tools' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
@@ -56,22 +64,23 @@ function countrytheme_setup() {
 		)
 	);
 
-	/*
-		* Switch default core markup for search form, comment form, and comments
-		* to output valid HTML5.
-		*/
-	add_theme_support(
-		'html5',
-		array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		)
-	);
+    /*
+     * Switch default core markup for search form, comment form, and comments
+     * to output valid HTML5.
+     */
+    add_theme_support(
+        'html5',
+        array(
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+            'script',
+            'style',
+            'navigation-widgets'
+        )
+    );
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support(

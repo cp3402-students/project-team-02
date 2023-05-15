@@ -1,10 +1,10 @@
 # Deployment
 
-The following document contains the developer operations and deployment procedures for the _WordPress_ custom theme _Country Theme_ made by CP3402 Project Team 02. The document will walk through the recommended development environment processes, developer tools/software and other managerial activities in an effort to provide a simple, repeatable workflow.
+The following document contains the developer operations and deployment procedures for the _WordPress_ custom theme _Country Theme_ made by CP3402 Project Team 02. The document will walk through the recommended development environment processes, tools/software and other managerial activities in an effort to provide a simple, repeatable workflow.
 
 ## Local Development
 
-The local development software that will be used is _Local by Flywheel_, a free virtual machine platform designed for locally hosting _WordPress_ sites. It has systems in place for administration, SSL and databasing that are simplified for beginners.
+The local development software that will be used is _Local by Flywheel_, a free VM-based platform designed for locally hosting _WordPress_ sites. In this way, developers can work offline and parallel to each other. It has simplified systems in place for administration, SSL and databasing. 
 
 ### Site Setup
 
@@ -14,13 +14,14 @@ The local development software that will be used is _Local by Flywheel_, a free 
    1. Take note of the local site's directory
    2. Take note of the _WordPress Admin_ details
 3. Click `Trust` for the local site's SSL
-4. Start the local site
+4. Start and visit the local site
 5. Open _WordPress Admin_ by adding `/wp-admin/` to the URL or clicking `WP Admin` in _Local by Flywheel_
 6. Log in with the _WordPress Admin_ details
 7. Install and activate the plugins [_Debug Bar_](https://wordpress.org/plugins/debug-bar/), [_Regenerate Thumbnails_](https://en-au.wordpress.org/plugins/regenerate-thumbnails/), [_Show Current Template_](https://wordpress.org/plugins/show-current-template/) and [_Theme Check_](https://wordpress.org/plugins/theme-check/)
 8. If migrating from another site, import the XML in `Tools -> Import`
    1. See documentation [here](https://wpengine.com/support/sync-new-post-and-pages/)
 9. If migrating to another site, export the XML in `Tools -> Export`
+   1. See documentation [here](https://wpengine.com/support/sync-new-post-and-pages/)
 
 Proceed to [site.md]() for information about managing _WordPress_ sites.
 
@@ -88,14 +89,16 @@ _Amazon Lightsail_ is a remote hosting solution provided by _Amazon Web Services
 2. Launch a _WordPress_ instance in _Amazon Lightsail_
    1. See documentation [here](https://aws.amazon.com/getting-started/hands-on/launch-a-wordpress-website/)
    2. Take note of the _WordPress Admin_ (Bitnami) details
-3. Open WordPress Admin by adding `/wp-admin/` to the URL
-4. Log in with the _WordPress Admin_ details
-5. Install and activate the plugins [_Debug Bar_](https://wordpress.org/plugins/debug-bar/), [_Regenerate Thumbnails_](https://en-au.wordpress.org/plugins/regenerate-thumbnails/), [_Show Current Template_](https://wordpress.org/plugins/show-current-template/) and [_Theme Check_](https://wordpress.org/plugins/theme-check/)
-6. If migrating from another site, import the XML in `Tools -> Import`
+3. Visit the live site
+4. Open WordPress Admin by adding `/wp-admin/` to the URL
+5. Log in with the _WordPress Admin_ details
+6. Install and activate the plugins [_Really Simple SSL_](https://en-au.wordpress.org/plugins/really-simple-ssl/), [_Debug Bar_](https://wordpress.org/plugins/debug-bar/), [_Regenerate Thumbnails_](https://en-au.wordpress.org/plugins/regenerate-thumbnails/), [_Show Current Template_](https://wordpress.org/plugins/show-current-template/) and [_Theme Check_](https://wordpress.org/plugins/theme-check/)
+7. If migrating from another site, import the XML in `Tools -> Import`
    1. See documentation [here](https://wpengine.com/support/sync-new-post-and-pages/)
-7. If migrating to another site, export the XML in `Tools -> Export`
-8. If the instance is not in active use, `Stop` the instance in _Amazon Lightsail_
-9. If the instance is no longer needed, `Delete` the instance in _Amazon Lightsail_
+8. If migrating to another site, export the XML in `Tools -> Export`
+   1. See documentation [here](https://wpengine.com/support/sync-new-post-and-pages/)
+9. If the instance is not in active use, `Stop` the instance in _Amazon Lightsail_
+10. If the instance is no longer needed, `Delete` the instance in _Amazon Lightsail_
 
 ### Theme Setup
 
@@ -107,12 +110,12 @@ _Amazon Lightsail_ is a remote hosting solution provided by _Amazon Web Services
 
 ### Testing and Automation
 
-Testing in a live production environment is discouraged because making changes may irreversibly break the site, making it inaccessible and/or incurring data loss. As such, limit testing to the local development environment before importing content to the live site. Automation can be achieved as follows:
+Testing in a live production environment is discouraged because making changes may irreversibly break the site, incurring costs and data loss. As such, limit testing to the local development environment before importing content to the live site. Automation can be achieved as follows:
 
-1. Toggle `Automatic Snapshots` from an instance's `Snapshots` tab in _Amazon Lightsail_ to save backups
+1. Toggle `Automatic Snapshots` from an instance's `Snapshots` tab in _Amazon Lightsail_ to save backups automatically
    1. This can be RAM-intensive and may require larger plans
 2. Activate WordPress plugins provided by _Amazon Lightsail_ that automate security, analysis and performance
-   1. e.g. _Akismet Anti-Spam: Spam Protection_, _Google Analytics for WordPress by MonsterInsights_ and _W3 Total Cache_
+   1. e.g. _Akismet Anti-Spam: Spam Protection_, _Google Analytics for WordPress by MonsterInsights_, _W3 Total Cache_
 
 ## Staging
 
@@ -120,7 +123,7 @@ Similar to live production, **WIP**
 
 ### Site Setup
 
-1. Follow steps 1-5 of **Live Production: Site Setup**
+1. Follow steps 1-6 of **Live Production: Site Setup**
    1. Launch a new _WordPress_ instance separate from the live production, in a different Availability Zone
 2. Navigate to `Users -> Add New` in _WordPress Admin_
 3. Add user details according to the client's needs
@@ -128,6 +131,7 @@ Similar to live production, **WIP**
 5. If migrating from another site, import the XML in `Tools -> Import`
    1. See documentation [here](https://wpengine.com/support/sync-new-post-and-pages/)
 6. If migrating to another site, export the XML in `Tools -> Export`
+   1. See documentation [here](https://wpengine.com/support/sync-new-post-and-pages/)
 7. If the instance is not in active use, `Stop` the instance in _Amazon Lightsail_
 8. If the instance is no longer needed, `Delete` the instance in _Amazon Lightsail_
 

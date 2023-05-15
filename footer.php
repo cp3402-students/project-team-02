@@ -10,7 +10,9 @@
  */
 
 ?>
-
+<html lang="en">
+<body>
+<div>
 	<footer id="colophon" class="site-footer">
 
 		<nav class="footer-navigation">
@@ -34,7 +36,7 @@
 			<span class="sep"> | </span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'countrytheme' ), 'countrytheme', '<a href="https://automattic.com/">Automattic</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'countrytheme' ), 'Country Theme', 'Project Team 02' );
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

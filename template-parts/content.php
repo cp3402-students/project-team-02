@@ -26,7 +26,7 @@
 			<?php countrytheme_the_category_lists(); ?>
 
 			<?php
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title"><a href="' . $post_link . '" rel="bookmark">', '</a></h2>' );
 
 			if ( 'post' === get_post_type() ) :
 				?>
@@ -39,9 +39,14 @@
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
+		<?php
+		$content = apply_filters( 'the_content', get_the_content() );
+		$file_embed = get_media_embedded_in_content( $content, array( 'object', 'embed', 'iframe' ) );
+		?>
+
 		<div class="entry-content">
 			<?php
-			the_excerpt();
+			the_content();
 			?>
 		</div><!-- .entry-content -->
 
@@ -60,7 +65,7 @@
 				wp_kses_post( get_the_title() )
 			)
 			?>
-			<a href="<?php esc_url( get_permalink() ) ?>" rel="bookmark">
+			<a href="<?php echo $post_link ?>" rel="bookmark">
 				<?php echo $read_more_link; ?>
 			</a>
 		</div>
