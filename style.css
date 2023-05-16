@@ -396,11 +396,11 @@ optgroup,
 textarea {
 	color: #0e0809;
 	font-family: "Rokkitt", Georgia, Cambria, Times, serif;
-	font-size: 18px;
-	font-size: 1.125rem;
+	font-size: 16px;
+	font-size: 1rem;
 	line-height: 1.5;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
 	body,
 	button,
 	input,
@@ -828,24 +828,9 @@ button.dropdown-toggle {
 }
 
 .footer-navigation ul {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
 	list-style: none;
-	margin: 0;
+	margin: -1em;
 	padding: 0;
-}
-.footer-navigation ul a {
-	display: block;
-	padding: 0.5em 1em;
-	color: white;
-	text-decoration: none;
-}
-.footer-navigation ul a:hover, .footer-navigation ul a:focus {
-	text-decoration: underline;
 }
 
 .pagination {
@@ -1178,16 +1163,47 @@ button.dropdown-toggle {
 --------------------------------------------- */
 .site-footer {
 	position: relative;
-	padding: 2em;
+	padding: 3em;
 	font-family: "Rokkitt", Georgia, Cambria, Times, serif;
 	color: white;
 	background-color: #df8d43;
+}
+@media screen and (min-width: 900px) {
+	.site-footer {
+		padding: 3em 10em 3em 10em;
+	}
+}
+.site-footer a {
+	display: inline-block;
+	padding: 0.5em 1em;
+	color: white;
+	text-decoration: none;
+}
+.site-footer a:hover, .site-footer a:focus {
+	text-decoration: underline;
+}
+
+.site-info {
 	text-align: center;
 }
-@media screen and (min-width: 600px) {
-	.site-footer {
-		padding: 2em 3em;
-	}
+
+.footer-columns {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
+.footer-column {
+	display: block;
+}
+
+.footer-links ul {
+	list-style: none;
+	margin: -1em;
+	padding: 0;
 }
 
 /* Archive

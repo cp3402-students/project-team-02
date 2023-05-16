@@ -282,3 +282,61 @@ function add_archive_class_to_custom_pages($classes): array
 }
 // add via body_class filter
 add_filter('body_class', 'add_archive_class_to_custom_pages');
+
+/**
+ * Queries posts for a specified category in a custom page.
+ *
+ * @params    $category          The name of the category.
+ * @params    $number_of_posts   The amount of posts displayed per page.
+ *
+ * @returns   null if no posts are found; otherwise, the query.
+ */
+function query_category(string $category, $number_of_posts = 10): WP_Query
+{
+    return new WP_Query(
+        array (
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'category_name' => $category,
+            'posts_per_page' => $number_of_posts,
+            'paged' => (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1,
+        )
+    );
+}
+
+/**
+ * Queries posts for a specified category in a custom page.
+ *
+ * @params    $max_page          The maximum number of pages in the query.
+ *
+ * @returns   null if the query fails; otherwise, the HTML of the pagination.
+ */
+function custom_page_pagination($max_page = ''): void
+{
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);
+
+    if (!$paged) {
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);
+    }
+
+    if (!$max_page) {
+        global $wp_query;
+        $max_page = $wp_query->max_num_pages ?? 1;
+    }
+
+    $big  = 999999999; // need an unlikely integer
+
+    $html = paginate_links(array(
+        'base'       => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+        'format'     => '?paged=%#%',
+        'current'    => max(1, $paged),
+        'total'      => $max_page,
+        'mid_size'   => 1,
+        'prev_text'  => __('Newer'),
+        'next_text'  => __('Older'),
+    ));
+
+    $html = "<nav class='navigation pagination' aria-label='Posts'><div class='nav-links'>" . $html . "</div></nav>";
+
+    echo $html;
+}

@@ -12,35 +12,84 @@
 ?>
 <html lang="en">
 <body>
-<div>
 	<footer id="colophon" class="site-footer">
 
-		<nav class="footer-navigation">
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-2',
-					'menu_id'        => 'footer-menu',
-				)
-			);
-			?>
-		</nav>
+		<?php get_search_form(); ?>
+
+		<div class="footer-columns">
+			<div class="footer-column">
+				<h3>Quick Links</h3>
+				<nav class="footer-navigation">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-2',
+							'menu_id'        => 'footer-menu',
+						)
+					);
+					?>
+				</nav>
+			</div>
+			<div class="footer-column">
+				<h3>Recent Events</h3>
+				<?php
+				$magazines = query_category("events", 7);
+
+				echo '<div class="footer-links"><ul>';
+
+				if ( $magazines->have_posts() ) :
+
+					while ( $magazines->have_posts() ) :
+
+						$magazines->the_post();
+						echo '<li>' . the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' ) . '</li>';
+
+					endwhile;
+
+				endif;
+
+				wp_reset_postdata();
+				echo '</ul></div>';
+
+				?>
+			</div>
+			<div class="footer-column">
+				<h3>Recent Magazines</h3>
+				<?php
+				$magazines = query_category("magazine", 7);
+
+				echo '<div class="footer-links"><ul>';
+
+				if ( $magazines->have_posts() ) :
+
+					while ( $magazines->have_posts() ) :
+
+						$magazines->the_post();
+						echo '<li>' . the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' ) . '</li>';
+
+					endwhile;
+
+				endif;
+
+				wp_reset_postdata();
+				echo '</ul></div>';
+
+				?>
+			</div>
+		</div>
 
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'countrytheme' ) ); ?>">
-				<?php
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'countrytheme' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
 				printf( esc_html__( 'Proudly powered by %s', 'countrytheme' ), 'WordPress' );
-				?>
-			</a>
+				?></a>
 			<span class="sep"> | </span>
-				<?php
+			<a href="<?php echo esc_url( __( 'https://github.com/cp3402-students/project-team-02', 'countrytheme' ) ); ?>"><?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'countrytheme' ), 'Country Theme', 'Project Team 02' );
-				?>
+				printf( esc_html__( 'Theme by %s', 'countrytheme' ), 'Project Team 02' );
+				?></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-</div><!-- #page -->
 
 <?php wp_footer(); ?>
 
