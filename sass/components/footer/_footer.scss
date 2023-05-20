@@ -6,7 +6,7 @@
   background-color: $color__skin;
 
   @media screen and (min-width: $query__medium) {
-    padding: 3em 10em 3em 10em;
+    padding: 3em 10em 0 10em;
   }
 
   a {
@@ -23,6 +23,7 @@
 }
 
 .site-info {
+  margin-top: 3em;
   text-align: center;
 }
 

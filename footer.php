@@ -81,7 +81,7 @@
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'countrytheme' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'countrytheme' ), 'WordPress' );
+				printf( esc_html__( 'Powered by %s', 'countrytheme' ), 'WordPress' );
 				?></a>
 			<span class="sep"> | </span>
 			<a href="<?php echo esc_url( __( 'https://github.com/cp3402-students/project-team-02', 'countrytheme' ) ); ?>"><?php
