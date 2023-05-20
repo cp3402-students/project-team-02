@@ -60,7 +60,8 @@ function countrytheme_setup(): void
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Header', 'countrytheme' ),
-            'menu-2' => esc_html__( 'Footer', 'countrytheme' )
+            'menu-2' => esc_html__( 'Footer', 'countrytheme' ),
+            'menu-3' => esc_html__( 'Social', 'countrytheme' )
 		)
 	);
 
@@ -172,13 +173,14 @@ function countrytheme_fonts_url() {
 /**
  * Add preconnect for Google Fonts.
  *
- * @since Twenty Seventeen 1.0
- *
  * @param array  $urls           URLs to print for resource hints.
  * @param string $relation_type  The relation type the URLs are printed.
  * @return array $urls           URLs to print for resource hints.
+ *@since Twenty Seventeen 1.0
+ *
  */
-function countrytheme_resource_hints( $urls, $relation_type ) {
+function countrytheme_resource_hints(array $urls, string $relation_type ): array
+{
     if ( wp_style_is( 'countrytheme-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
         $urls[] = array(
             'href' => 'https://fonts.gstatic.com',

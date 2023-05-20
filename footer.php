@@ -14,6 +14,41 @@
 <body>
 	<footer id="colophon" class="site-footer">
 
+		<nav class="social-navigation">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-3',
+					'menu_id'        => 'social-footer',
+					'link_before' => '<span>',
+					'link_after' => '</span>'
+				)
+			);
+			?>
+		</nav>
+
+		<div class="site-details">
+			<?php
+			$phone = "0417 199 744";
+			$email = "ttcma2018@gmail.com";
+			?>
+			<?php
+			printf( esc_html__( 'Club Phone:', 'countrytheme' ));
+			?>
+			<a href="tel:<?php echo $phone ?>"><?php
+				/* translators: %s: Main phone number. */
+				printf( esc_html__( $phone, 'countrytheme' ));
+				?></a>
+			<span class="sep"> | </span>
+			<?php
+			printf( esc_html__( 'Club Email:', 'countrytheme' ));
+			?>
+			<a href="mailto:<?php echo $email ?>"><?php
+				/* translators: 1: Main email address. */
+				printf( esc_html__( $email, 'countrytheme' ));
+				?></a>
+		</div>
+
 		<?php get_search_form(); ?>
 
 		<div class="footer-columns">
@@ -86,7 +121,7 @@
 			<span class="sep"> | </span>
 			<a href="<?php echo esc_url( __( 'https://github.com/cp3402-students/project-team-02', 'countrytheme' ) ); ?>"><?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme by %s', 'countrytheme' ), 'Project Team 02' );
+				printf( esc_html__( 'Theme by %s', 'countrytheme' ), 'CP3408 2023 Project Team 02' );
 				?></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

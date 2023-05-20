@@ -1,12 +1,13 @@
 .site-footer {
   position: relative;
-  padding: 3em;
+  padding: 3em 3em 0 3em;
   font-family: $font__text;
   color: white;
   background-color: $color__skin;
+  margin-bottom: -2em;
 
   @media screen and (min-width: $query__medium) {
-    padding: 3em 10em 0 10em;
+    padding: 3em 7em 0 7em;
   }
 
   a {
@@ -27,6 +28,24 @@
   text-align: center;
 }
 
+.site-details {
+  margin-bottom: 3em;
+  text-align: center;
+  font-size: 1rem;
+
+  @media screen and (min-width: $query__medium) {
+    font-size: 1.6rem;
+  }
+
+  a {
+    padding: 0;
+  }
+}
+
+ul#footer-menu {
+  margin: 0 0 0 -1em;
+}
+
 .footer-columns {
   display: flex;
   justify-content: space-between;
@@ -34,6 +53,7 @@
 
 .footer-column {
   display: block;
+  padding: 0 1em 0 1em;
 }
 
 .footer-links {
