@@ -6,10 +6,10 @@ optgroup,
 textarea {
 	color: $color__2;
 	font-family: $font__text;
-	@include font-size(.9);
+	@include font-size(.8);
 	line-height: $font__line-height-body;
 
-	@media screen and (min-width: $query__small) {
+	@media screen and (min-width: $query__medium) {
 		@include font-size(1);
 	}
 }

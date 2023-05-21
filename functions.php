@@ -46,7 +46,15 @@ function countrytheme_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
     add_image_size( 'countrytheme-full-bleed', 1800, 1000, true);
-    add_image_size( 'countrytheme-index-image', 1800, 400, true);
+    add_image_size( 'countrytheme-index-image', 1800, 500, true);
+
+    add_theme_support( 'custom-background' );
+    add_theme_support('custom-line-height');
+    add_theme_support( 'custom-spacing' );
+    add_theme_support('custom-units');
+    add_theme_support('responsive-embeds');
+    add_theme_support( 'wp-block-styles' );
+    add_theme_support( 'appearance-tools' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
@@ -56,22 +64,23 @@ function countrytheme_setup() {
 		)
 	);
 
-	/*
-		* Switch default core markup for search form, comment form, and comments
-		* to output valid HTML5.
-		*/
-	add_theme_support(
-		'html5',
-		array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		)
-	);
+    /*
+     * Switch default core markup for search form, comment form, and comments
+     * to output valid HTML5.
+     */
+    add_theme_support(
+        'html5',
+        array(
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+            'script',
+            'style',
+            'navigation-widgets'
+        )
+    );
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support(
@@ -273,3 +282,61 @@ function add_archive_class_to_custom_pages($classes): array
 }
 // add via body_class filter
 add_filter('body_class', 'add_archive_class_to_custom_pages');
+
+/**
+ * Queries posts for a specified category in a custom page.
+ *
+ * @params    $category          The name of the category.
+ * @params    $number_of_posts   The amount of posts displayed per page.
+ *
+ * @returns   null if no posts are found; otherwise, the query.
+ */
+function query_category(string $category, $number_of_posts = 10): WP_Query
+{
+    return new WP_Query(
+        array (
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'category_name' => $category,
+            'posts_per_page' => $number_of_posts,
+            'paged' => (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1,
+        )
+    );
+}
+
+/**
+ * Queries posts for a specified category in a custom page.
+ *
+ * @params    $max_page          The maximum number of pages in the query.
+ *
+ * @returns   null if the query fails; otherwise, the HTML of the pagination.
+ */
+function custom_page_pagination($max_page = ''): void
+{
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);
+
+    if (!$paged) {
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);
+    }
+
+    if (!$max_page) {
+        global $wp_query;
+        $max_page = $wp_query->max_num_pages ?? 1;
+    }
+
+    $big  = 999999999; // need an unlikely integer
+
+    $html = paginate_links(array(
+        'base'       => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+        'format'     => '?paged=%#%',
+        'current'    => max(1, $paged),
+        'total'      => $max_page,
+        'mid_size'   => 1,
+        'prev_text'  => __('Newer'),
+        'next_text'  => __('Older'),
+    ));
+
+    $html = "<nav class='navigation pagination' aria-label='Posts'><div class='nav-links'>" . $html . "</div></nav>";
+
+    echo $html;
+}

@@ -18,15 +18,7 @@ get_header();
         </header><!-- .page-header -->
 
         <?php
-        $posts = new WP_Query(
-            array (
-            'post_type' => 'post',
-            'post_status' => 'publish',
-            'category_name' => 'magazine', // change category here
-            'posts_per_page' => 10,
-            'paged' => (get_query_var( 'paged' )) ? get_query_var( 'paged' ) : 1,
-            )
-        );
+        $posts = query_category("magazine");
 
         if ( $posts->have_posts() ) :
 
@@ -38,17 +30,16 @@ get_header();
 
             endwhile;
 
-            the_posts_pagination( array(
-                "prev_text" => __("Newer", "countrytheme"),
-                "next_text" => __("Older", "countrytheme"),
-                "before_page_number" => "<span class='screen-reader-text'>" . __("Page ", "countrytheme") . "</span>"
-            ));
+            custom_page_pagination($posts->max_num_pages);
 
         else :
 
             get_template_part( 'template-parts/content', 'none' );
 
         endif;
+
+        wp_reset_postdata();
+
         ?>
 
     </main><!-- .site-main -->
