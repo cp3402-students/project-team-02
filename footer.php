@@ -68,15 +68,15 @@
 			<div class="footer-column">
 				<h3>Recent Events</h3>
 				<?php
-				$magazines = query_category("events", 7);
+				$events = query_category("events", 7);
 
 				echo '<div class="footer-links"><ul>';
 
-				if ( $magazines->have_posts() ) :
+				if ( $events->have_posts() ) :
 
-					while ( $magazines->have_posts() ) :
+					while ( $events->have_posts() ) :
 
-						$magazines->the_post();
+						$events->the_post();
 						echo '<li>' . the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' ) . '</li>';
 
 					endwhile;

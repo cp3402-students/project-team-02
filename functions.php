@@ -114,9 +114,10 @@ function countrytheme_setup(): void
 	);
 
     // Add custom page templates
-    attach_template_to_page( 'Magazine', '/page-templates/magazine-template.php' );
     attach_template_to_page( 'Events', '/page-templates/events-template.php' );
+    attach_template_to_page( 'Magazine', '/page-templates/magazine-template.php' );
     attach_template_to_page( 'Gallery', '/page-templates/gallery-template.php' );
+    attach_template_to_page( 'Charts', '/page-templates/charts-template.php' );
 }
 add_action( 'after_setup_theme', 'countrytheme_setup' );
 
@@ -348,13 +349,17 @@ function attach_template_to_page( $page_name, $template_file_name ): int
 function add_archive_class_to_custom_pages($classes): array
 {
     // add class to the classes array of custom pages
-    if ( is_page( 'Magazine' ) ) {
-        $classes[] = 'archive-view';
-    }
     if ( is_page( 'Events' ) ) {
         $classes[] = 'archive-view';
     }
+    if ( is_page( 'Magazine' ) ) {
+        $classes[] = 'archive-view';
+    }
     if ( is_page( 'Gallery' ) ) {
+        $classes[] = 'archive-view';
+    }
+
+    if ( is_page( 'Charts' ) ) {
         $classes[] = 'archive-view';
     }
 

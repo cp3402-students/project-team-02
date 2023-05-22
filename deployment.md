@@ -92,7 +92,7 @@ _Amazon Lightsail_ is a remote hosting solution provided by _Amazon Web Services
 3. Visit the live site
 4. Open WordPress Admin by adding `/wp-admin/` to the URL
 5. Log in with the _WordPress Admin_ details
-6. Install and activate the plugins Otter for custom forms, [_Really Simple SSL_](https://en-au.wordpress.org/plugins/really-simple-ssl/) for SSL verification
+6. Install and activate the plugins [_Otter_]() for custom forms and [_Really Simple SSL_](https://en-au.wordpress.org/plugins/really-simple-ssl/) for SSL verification
 7. If migrating from another site, import the XML in `Tools -> Import`
    1. See documentation [here](https://wpengine.com/support/sync-new-post-and-pages/)
 8. If migrating to another site, export the XML in `Tools -> Export`
