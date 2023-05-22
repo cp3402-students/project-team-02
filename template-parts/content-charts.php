@@ -43,11 +43,11 @@
 		$content = apply_filters( 'the_content', get_the_content() );
 		?>
 
-		<div class="entry-content">
+		<div class="entry-summary">
 			<?php
-			the_content();
+			the_excerpt();
 			?>
-		</div><!-- .entry-content -->
+		</div><!-- .entry-summary -->
 
 		<div class="continue-reading">
 			<?php
