@@ -14,7 +14,7 @@ get_header();
 
         <header class="page-header">
             <h1 class="page-title"><?php the_title(); ?></h1>
-            <div class="archive-description"><?php the_post(); ?></div>
+            <div class="archive-description"><?php the_content(); ?></div>
         </header><!-- .page-header -->
 
         <?php

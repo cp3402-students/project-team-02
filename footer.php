@@ -68,7 +68,7 @@
 			<div class="footer-column">
 				<h3>Recent Events</h3>
 				<?php
-				$events = query_category("events", 7);
+				$events = query_category("events", 8);
 
 				echo '<div class="footer-links"><ul>';
 
@@ -91,7 +91,7 @@
 			<div class="footer-column">
 				<h3>Recent Magazines</h3>
 				<?php
-				$magazines = query_category("magazine", 7);
+				$magazines = query_category("magazine", 8);
 
 				echo '<div class="footer-links"><ul>';
 
