@@ -1,9 +1,20 @@
-Country Theme
+CP3402 2023 Project Team 02
 ===
 
-Based on starter theme <code>_s</code> which can be found [here](https://github.com/Automattic/_s).
+This repository is for the custom theme Country Theme...
 
-### Contributors
+## Country Theme
+
+A sleek yet ornamental custom theme, perfect for country lovers. Designed by Project Team 02 for CP3402 at JCU, 2023. Based on the starter theme <code>_s</code>.
+
+## Underscores
+
+## Documentation
+* [deployment.md](deployment.md)
+* [theme.md](theme.md)
+* [site.md](site.md)
+
+## Contributors
 
 * Ayla Gunawan
 * Antony Hockin
