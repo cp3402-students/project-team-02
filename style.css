@@ -1,25 +1,20 @@
+@charset "UTF-8";
 /*!
 Theme Name: Country Theme
 Theme URI: https://github.com/cp3402-students/project-team-02
 Author: CP3402 Project Team 02
 Author URI: https://github.com/cp3402-students/project-team-02
-Description: Based on the starter theme <code>_s</code>.
+Description: A sleek yet ornamental custom theme, perfect for country lovers. Designed by Project Team 02 for CP3402 at JCU, 2023. Based on the starter theme <code>_s</code>. Header image was licensed from Adobe Stock Images.
 Version: 1.0.0
 Tested up to: 5.4
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: countrytheme
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: custom-logo, custom-menu, custom-page-template, featured-images, threaded-comments, translation-ready
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned.
-
-_s is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Country Theme is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -659,7 +654,7 @@ textarea {
 }
 @media screen and (min-width: 900px) {
 	.site-main {
-		padding: 10em;
+		padding: 7em;
 	}
 }
 
@@ -737,13 +732,11 @@ button.dropdown-toggle {
 }
 
 .menu-toggle {
-	position: absolute;
-	top: 0;
-	right: 0;
+	position: relative;
 	display: block;
-	margin: 1.2em 1.2em 0 0;
-	padding: 0.6em 0.8em;
-	font-size: 80%;
+	margin: 1em;
+	padding: 1em;
+	font-size: 1rem;
 	text-transform: uppercase;
 	color: white;
 	border: 1px solid hsla(0, 0%, 100%, 0.3);
@@ -759,6 +752,14 @@ button.dropdown-toggle {
 	.menu-toggle {
 		display: none;
 	}
+	.main-navigation {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+	}
 	.main-navigation .menu-item-has-children > a,
 	.main-navigation .page_item_has_children > a {
 		padding-right: 2em;
@@ -770,6 +771,11 @@ button.dropdown-toggle {
 		display: flex;
 		-ms-flex-wrap: wrap;
 		    flex-wrap: wrap;
+		padding-top: 0;
+	}
+	.main-navigation ul li:hover > ul,
+	.main-navigation ul li:focus > ul {
+		display: block;
 	}
 	.main-navigation ul ul {
 		-webkit-box-orient: vertical;
@@ -788,15 +794,6 @@ button.dropdown-toggle {
 	}
 	.main-navigation ul li a {
 		padding: 0.4em 1em;
-	}
-}
-@media screen and (min-width: 600px) {
-	.main-navigation ul {
-		padding-top: 0;
-	}
-	.main-navigation ul li:hover > ul,
-	.main-navigation ul li:focus > ul {
-		display: block;
 	}
 }
 .site-main .comment-navigation,
@@ -829,8 +826,31 @@ button.dropdown-toggle {
 
 .footer-navigation ul {
 	list-style: none;
-	margin: -1em;
 	padding: 0;
+}
+
+.social-navigation {
+	display: block;
+	font-size: 1rem;
+}
+@media screen and (min-width: 900px) {
+	.social-navigation {
+		font-size: 1.6rem;
+	}
+}
+.social-navigation ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	list-style: none;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin: 0;
+}
+.social-navigation ul li {
+	margin-left: -2em;
+	padding: 0 1em 0 1em;
 }
 
 .pagination {
@@ -1163,14 +1183,15 @@ button.dropdown-toggle {
 --------------------------------------------- */
 .site-footer {
 	position: relative;
-	padding: 3em;
+	padding: 3em 3em 0 3em;
 	font-family: "Rokkitt", Georgia, Cambria, Times, serif;
 	color: white;
 	background-color: #df8d43;
+	margin-bottom: -2em;
 }
 @media screen and (min-width: 900px) {
 	.site-footer {
-		padding: 3em 10em 3em 10em;
+		padding: 3em 7em 0 7em;
 	}
 }
 .site-footer a {
@@ -1184,7 +1205,26 @@ button.dropdown-toggle {
 }
 
 .site-info {
+	margin-top: 3em;
 	text-align: center;
+}
+
+.site-details {
+	margin-bottom: 3em;
+	text-align: center;
+	font-size: 1rem;
+}
+@media screen and (min-width: 900px) {
+	.site-details {
+		font-size: 1.6rem;
+	}
+}
+.site-details a {
+	padding: 0;
+}
+
+ul#footer-menu {
+	margin: 0 0 0 -1em;
 }
 
 .footer-columns {
@@ -1198,11 +1238,12 @@ button.dropdown-toggle {
 
 .footer-column {
 	display: block;
+	padding: 0 1em 0 1em;
 }
 
 .footer-links ul {
 	list-style: none;
-	margin: -1em;
+	margin: 1em -1em -1em -1em;
 	padding: 0;
 }
 
@@ -1271,6 +1312,7 @@ button.dropdown-toggle {
 }
 
 /* For content-none.php */
+.site-footer .page-content,
 .search .page-content,
 .error-404 .page-content {
 	margin-bottom: 2em;
@@ -1279,16 +1321,20 @@ button.dropdown-toggle {
 	color: white;
 	background: #415e79;
 }
+.site-footer input[type=search],
 .search input[type=search],
 .error-404 input[type=search] {
 	padding: 0.5em;
 }
+.site-footer input[type=submit],
 .search input[type=submit],
 .error-404 input[type=submit] {
 	border-color: white;
 	color: white;
 }
-.search input[type=submit]:focus, .search input[type=submit]:hover,
+.site-footer input[type=submit]:focus, .site-footer input[type=submit]:hover,
+.search input[type=submit]:focus,
+.search input[type=submit]:hover,
 .error-404 input[type=submit]:focus,
 .error-404 input[type=submit]:hover {
 	color: black;
@@ -1309,6 +1355,59 @@ button.dropdown-toggle {
 }
 .index-image a:hover > img, .index-image a:focus > img {
 	opacity: 0.8;
+}
+
+/* Icons
+--------------------------------------------- */
+/* SVG Icons base styles */
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 1em;
+	position: relative; /* Align more nicely with capital letters */
+	top: -0.0625em;
+	vertical-align: middle;
+	width: 1em;
+}
+
+/*--------------------------------------------------------------
+SVG Fallbacks
+--------------------------------------------------------------*/
+.svg-fallback {
+	display: none;
+}
+
+.no-svg .svg-fallback {
+	display: inline-block;
+}
+
+.no-svg .nav-links .svg-fallback {
+	padding: 0 0.5em;
+	color: inherit;
+	background: inherit;
+}
+
+.no-svg .svg-fallback.icon-arrow-left:before {
+	content: "←";
+}
+
+.no-svg .svg-fallback.icon-arrow-right:before {
+	content: "→";
+}
+
+/* Social Menu fallbacks */
+.no-svg .social-menu a {
+	height: auto;
+	width: auto;
+}
+
+.no-svg .social-menu li a .screen-reader-text {
+	clip: auto;
+	font-size: 1rem;
+	font-weight: 400;
+	height: auto;
+	position: relative !important; /* overrides previous !important styles */
+	width: auto;
 }
 
 /* Widgets

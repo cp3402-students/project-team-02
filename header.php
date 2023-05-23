@@ -11,7 +11,7 @@
 
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?> lang="en">
+<html <?php language_attributes(); ?> class="no-svg">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
+<nav id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'countrytheme' ); ?></a>
 
 	<header id="masthead" class="site-header">
@@ -40,13 +40,24 @@
 			</div>
 		</div><!-- .site-branding -->
 
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'countrytheme' ); ?></button>
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'countrytheme' ); ?></button>
 			<?php
 			wp_nav_menu(
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'header-menu',
+				)
+			);
+			?>
+
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-3',
+					'menu_id'        => 'social-header',
+					'link_before' => '<span>',
+					'link_after' => '</span>'
 				)
 			);
 			?>

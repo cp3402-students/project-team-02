@@ -38,7 +38,6 @@
 
         <?php
         $content = apply_filters( 'the_content', get_the_content() );
-        $file_embed = get_media_embedded_in_content( $content, array( 'object', 'embed', 'iframe' ) );
         ?>
 
         <div class="entry-content">

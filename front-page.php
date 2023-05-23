@@ -20,14 +20,6 @@ get_header();
         <?php
         if ( have_posts() ) :
 
-            if ( is_home() && ! is_front_page() ) :
-                ?>
-                <header>
-                    <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-                </header>
-            <?php
-            endif;
-
             /* Start the Loop */
             while ( have_posts() ) :
                 the_post();
@@ -42,8 +34,8 @@ get_header();
             endwhile;
 
             the_posts_pagination( array(
-                "prev_text" => __("Newer", "countrytheme"),
-                "next_text" => __("Older", "countrytheme"),
+                "prev_text" => countrytheme_get_svg( array( 'icon' => 'arrow-left', 'fallback' => true )) . " " . __("Newer", "countrytheme"),
+                "next_text" => __("Older", "countrytheme") . " " . countrytheme_get_svg( array( 'icon' => 'arrow-right', 'fallback' => true )) ,
                 "before_page_number" => "<span class='screen-reader-text'>" . __("Page ", "countrytheme") . "</span>"
             ));
 

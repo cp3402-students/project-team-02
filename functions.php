@@ -19,7 +19,8 @@ if ( ! defined( 'countrytheme_VERSION' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function countrytheme_setup() {
+function countrytheme_setup(): void
+{
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
@@ -48,7 +49,6 @@ function countrytheme_setup() {
     add_image_size( 'countrytheme-full-bleed', 1800, 1000, true);
     add_image_size( 'countrytheme-index-image', 1800, 500, true);
 
-    add_theme_support( 'custom-background' );
     add_theme_support('custom-line-height');
     add_theme_support( 'custom-spacing' );
     add_theme_support('custom-units');
@@ -60,7 +60,8 @@ function countrytheme_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Header', 'countrytheme' ),
-            'menu-2' => esc_html__( 'Footer', 'countrytheme' )
+            'menu-2' => esc_html__( 'Footer', 'countrytheme' ),
+            'menu-3' => esc_html__( 'Social', 'countrytheme' )
 		)
 	);
 
@@ -113,11 +114,84 @@ function countrytheme_setup() {
 	);
 
     // Add custom page templates
-//    attach_template_to_page( 'Magazine', '/page-templates/magazine-template.php' );
-//    attach_template_to_page( 'Events', '/page-templates/events-template.php' );
-//    attach_template_to_page( 'Gallery', '/page-templates/gallery-template.php' );
+    attach_template_to_page( 'Events', '/page-templates/events-template.php' );
+    attach_template_to_page( 'Magazine', '/page-templates/magazine-template.php' );
+    attach_template_to_page( 'Gallery', '/page-templates/gallery-template.php' );
+    attach_template_to_page( 'Charts', '/page-templates/charts-template.php' );
 }
 add_action( 'after_setup_theme', 'countrytheme_setup' );
+
+/**
+ * Register custom fonts.
+ */
+function countrytheme_fonts_url() {
+    $fonts_url = '';
+
+    /**
+     * Translators: If there are characters in your language that are not
+     * supported by Caveat, Caveat Brush, Rokkitt and Rye, translate this to 'off'. Do not translate
+     * into your own language.
+     */
+    $caveat = _x( 'on', 'Caveat font: on or off', 'countrytheme' );
+    $caveat_brush = _x( 'on', 'Caveat Brush font: on or off', 'countrytheme' );
+    $rokkitt = _x( 'on', 'Rokkitt font: on or off', 'countrytheme' );
+    $rye = _x( 'on', 'Rye font: on or off', 'countrytheme' );
+
+    // "https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;700&family=Rokkitt:wght@100;400;700&family=Rye&display=swap"
+
+    $font_families = array();
+
+    if ( 'off' !== $caveat ) {
+        $font_families[] = 'Caveat:400,400i,700,700i';
+    }
+
+    if ( 'off' !== $caveat_brush ) {
+        $font_families[] = 'Caveat Brush';
+    }
+
+    if ( 'off' !== $rokkitt ) {
+        $font_families[] = 'Rokkitt:100,100i,400,400i,700,700i';
+    }
+
+    if ( 'off' !== $rye ) {
+        $font_families[] = 'Rye';
+    }
+
+
+    if ( in_array( 'on', array($caveat, $caveat_brush, $rokkitt, $rye) ) ) {
+
+        $query_args = array(
+            'family' => urlencode( implode( '|', $font_families ) ),
+            'subset' => urlencode( 'latin,latin-ext' ),
+        );
+
+        $fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+    }
+
+    return esc_url_raw( $fonts_url );
+}
+
+/**
+ * Add preconnect for Google Fonts.
+ *
+ * @param array  $urls           URLs to print for resource hints.
+ * @param string $relation_type  The relation type the URLs are printed.
+ * @return array $urls           URLs to print for resource hints.
+ *@since Twenty Seventeen 1.0
+ *
+ */
+function countrytheme_resource_hints(array $urls, string $relation_type ): array
+{
+    if ( wp_style_is( 'countrytheme-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+        $urls[] = array(
+            'href' => 'https://fonts.gstatic.com',
+            'crossorigin',
+        );
+    }
+
+    return $urls;
+}
+add_filter( 'wp_resource_hints', 'countrytheme_resource_hints', 10, 2 );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -126,7 +200,8 @@ add_action( 'after_setup_theme', 'countrytheme_setup' );
  *
  * @global int $content_width
  */
-function countrytheme_content_width() {
+function countrytheme_content_width(): void
+{
 	$GLOBALS['content_width'] = apply_filters( 'countrytheme_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'countrytheme_content_width', 0 );
@@ -136,7 +211,8 @@ add_action( 'after_setup_theme', 'countrytheme_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function countrytheme_widgets_init() {
+function countrytheme_widgets_init(): void
+{
 	register_sidebar(
 		array(
 			'name'          => esc_html__( 'Sidebar', 'countrytheme' ),
@@ -154,9 +230,10 @@ add_action( 'widgets_init', 'countrytheme_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function countrytheme_scripts() {
-    // Enqueu Google Fonts:
-    wp_enqueue_style('countrytheme-fonts', "https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;700&family=Rokkitt:wght@100;400;700&family=Rye&display=swap");
+function countrytheme_scripts(): void
+{
+    // Enqueue Google Fonts:
+    wp_enqueue_style('countrytheme-fonts', countrytheme_fonts_url());
 
 	wp_enqueue_style( 'countrytheme-style', get_stylesheet_uri(), array(), countrytheme_VERSION );
 	wp_style_add_data( 'countrytheme-style', 'rtl', 'replace' );
@@ -167,7 +244,7 @@ function countrytheme_scripts() {
         'collapse' => __( 'Collapse child menu', 'countrytheme')
     ));
 
-//    wp_enqueue_script( 'countrytheme-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), countrytheme_VERSION, true );
+    wp_enqueue_script( 'countrytheme-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), countrytheme_VERSION, true );
 
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -195,6 +272,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * SVG icon functions.
+ */
+require get_template_directory() . '/inc/icon-functions.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -267,13 +349,17 @@ function attach_template_to_page( $page_name, $template_file_name ): int
 function add_archive_class_to_custom_pages($classes): array
 {
     // add class to the classes array of custom pages
-    if ( is_page( 'Magazine' ) ) {
-        $classes[] = 'archive-view';
-    }
     if ( is_page( 'Events' ) ) {
         $classes[] = 'archive-view';
     }
+    if ( is_page( 'Magazine' ) ) {
+        $classes[] = 'archive-view';
+    }
     if ( is_page( 'Gallery' ) ) {
+        $classes[] = 'archive-view';
+    }
+
+    if ( is_page( 'Charts' ) ) {
         $classes[] = 'archive-view';
     }
 
@@ -332,8 +418,9 @@ function custom_page_pagination($max_page = ''): void
         'current'    => max(1, $paged),
         'total'      => $max_page,
         'mid_size'   => 1,
-        'prev_text'  => __('Newer'),
-        'next_text'  => __('Older'),
+        'prev_text'  => countrytheme_get_svg( array( 'icon' => 'arrow-left', 'fallback' => true )) . " " . __("Newer", "countrytheme"),
+        'next_text'  => __("Older", "countrytheme") . " " . countrytheme_get_svg( array( 'icon' => 'arrow-right', 'fallback' => true )),
+        "before_page_number" => "<span class='screen-reader-text'>" . __("Page ", "countrytheme") . "</span>"
     ));
 
     $html = "<nav class='navigation pagination' aria-label='Posts'><div class='nav-links'>" . $html . "</div></nav>";

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Gallery Template
+ * Template Name: Charts Template
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -19,7 +19,7 @@ get_header();
             </header><!-- .page-header -->
 
             <?php
-            $posts = query_category("gallery");
+            $posts = query_category("charts");
 
             if ( $posts->have_posts() ) :
 
@@ -27,7 +27,7 @@ get_header();
 
                     $posts->the_post();
 
-                    get_template_part( 'template-parts/content', 'gallery' );
+                    get_template_part( 'template-parts/content', get_post_type() );
 
                 endwhile;
 
