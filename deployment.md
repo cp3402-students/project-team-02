@@ -17,6 +17,10 @@ The following documentation contains DevOps procedures for the _WordPress_ custo
    2. [Theme Setup](#theme-setup-2)
    3. [Testing and Automation](#testing-and-automation-2)
 4. [Project Management](#project-management)
+   1. [Communication](#communication)
+   2. [Task Allocation](#task-allocation)
+   3. [Version Control](#version-control-1)
+   4. [Workflow](#workflow)
 
 ## Local Development
 
@@ -69,7 +73,6 @@ Proceed to [theme.md](theme.md) for information about customising the theme.
 7. Make changes to the files from `countrytheme` in _PHPStorm_
 8. Commit the changes and push in _GitHub Desktop_
 9. Merge commit the branch into `main` remotely
-   1. Communicate with teammates to approve the merge and resolve conflicts
 10. Delete the branch remotely
 11. Repeat steps 4-10 for every important change/feature
 
@@ -172,10 +175,34 @@ Automation can be achieved as follows:
 
 ## Project Management
 
-**WIP**
+### Communication
+For this project, the team is encouraged to communicate face-to-face in weekly stand-up meetings or use an online meeting platform like _Discord_. These meet-up sessions are held to monitor the progress of each member, highlight roadblocks and make group decisions.
 
-The project's source control was remotely managed using _GitHub_ in this repository. When a feature is to be added to the custom theme, a team member - branches, announce when changing, approve merges
+### Task Allocation
+The allocation and organisation of tasks is supported by _Trello_. In a meeting, a task is assigned to a team member in the board, categorised by type, set with a deadline and placed in a list depending on its status. When complete, that member can tick it and be reassigned. This system keeps everyone accountable and visualises the project's progression.
 
-Project management, - trello, assign tasks, organise + structure, deadlines
+### Version Control
 
-For communication, the team is encouraged to meet face-to-face in weekly stand-up meetings or use an online meeting platform like _Discord_. These meet-up sessions are held to track the progress of each member, highlight roadblocks and reassign tasks.
+_GitHub_ is the primary means of remote source control management. Centralising the custom theme in a repository allows teammates to contribute features and fixes in parallel. When a new feature is to be developed, the teammate must make a new branch so that any changes are isolated and only integrated after approval. Clear communication of who is doing what and at what time is important for maintaining a smooth pipeline.
+
+### Workflow
+
+1. Download and install [_Discord_](https://discord.com/)
+   1. See documentation [here](https://discord.com/developers/docs/intro)
+   2. Alternatively, open it in browser
+2. Have a stand-up meeting in-person or on _Discord_ to assign tasks
+   1. Organise the date, time and place of the next meeting
+3. Set up a respective task on _Trello_
+   1. Take note of the deadline (often the date of the next meeting)
+4. Create a new feature branch on this GitHub repository
+   1. See steps 5-10 of [Local Development: Version Control](#version-control)
+   2. Branches can be made locally or remotely
+5. Make appropriate changes for the task before the deadline
+6. Commit and push to the feature branch
+7. Pull request a merge the feature branch into main
+   1. Ensure the pull request message clearly outlines what has been changed
+8. Communicate with the team on _Discord_ to resolve conflicts and approve the merge
+9. Set the task as complete on _Trello_
+10. Repeat steps 3-9 for every task
+11. Attend the next meeting
+12. If changes need to be made directly to main, announce it on _Discord_ for other team members to re-fetch
