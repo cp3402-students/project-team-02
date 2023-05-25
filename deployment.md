@@ -190,6 +190,7 @@ _GitHub_ is the primary means of remote source control management. Centralising 
 1. Download and install [_Discord_](https://discord.com/)
    1. See documentation [here](https://discord.com/developers/docs/intro)
    2. Alternatively, open it in browser
+   3. Alternatively, use [Slack](https://slack.com/intl/en-au)
 2. Have a stand-up meeting in-person or on _Discord_ to assign tasks
    1. Organise the date, time and place of the next meeting
 3. Set up a respective task on _Trello_
