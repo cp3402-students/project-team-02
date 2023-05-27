@@ -16,7 +16,7 @@ This custom theme was created with contributors in mind, providing full customiz
 8.       A variety of customizable areas to implement custom content
 # Documentation
 ## Deployment.md:
-Within this documentation are the DevOps procedures for the custom theme created in team two’s CP3402 project. This runs through recommended processes for the development environment, relevant tools, and project management implementation to create a repeatable workflow.       
+Within this documentation are DevOps procedures for the WordPress custom theme "Country Theme" made by CP3402 Project Team 02. The document will walk through recommended development environment processes, tools and general project management to provide a simple, repeatable workflow.
 * [deployment.md](deployment.md)
 ## Theme.md:
 Within this documentation is useful information for new developers using the Country Theme developed by CP3402 Project Team 02. Information includes feature information, files that may need editing, design decisions and more.
