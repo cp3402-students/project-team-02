@@ -1088,6 +1088,7 @@ button.dropdown-toggle {
 /* Header
 --------------------------------------------- */
 .header-image {
+	position: relative;
 	max-height: 60vw;
 	overflow: hidden;
 }
@@ -1143,8 +1144,7 @@ button.dropdown-toggle {
 .site-title {
 	margin: 0;
 	padding: 0;
-	font-size: 1.6em;
-	font-weight: 900;
+	font-size: 2em;
 	line-height: 1em;
 }
 .site-title a {
@@ -1179,6 +1179,52 @@ button.dropdown-toggle {
 		        flex: 1 0 auto;
 	}
 }
+.header-image-overlay {
+	position: absolute;
+	top: 12.5%;
+	left: 0;
+	width: 80%;
+	height: 75%;
+	background: hsla(0, 0%, 0%, 0);
+}
+@media screen and (min-width: 900px) {
+	.header-image-overlay {
+		background: hsla(0, 0%, 0%, 0.5);
+	}
+}
+
+.header-image-group {
+	position: absolute;
+	text-align: left;
+	line-height: 0.5em;
+	top: 50%;
+	-webkit-transform: translate(0, -75%);
+	        transform: translate(0, -75%);
+	margin-left: 3%;
+	color: hsla(0, 0%, 0%, 0);
+}
+@media screen and (min-width: 900px) {
+	.header-image-group {
+		color: white;
+	}
+}
+
+.action-button {
+	position: absolute;
+	font-family: "Rokkitt", Georgia, Cambria, Times, serif;
+	margin-top: 1em;
+}
+.action-button a {
+	padding: 1em 1em;
+	text-decoration: none;
+	color: white;
+	background: #0e0809;
+}
+.action-button a:focus, .action-button a:hover {
+	color: white;
+	background: #415e79;
+}
+
 /* Footer
 --------------------------------------------- */
 .site-footer {

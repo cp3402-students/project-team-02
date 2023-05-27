@@ -16,18 +16,20 @@
  *
  * @uses countrytheme_header_style()
  */
-function countrytheme_custom_header_setup() {
+function countrytheme_custom_header_setup(): void
+{
 	add_theme_support(
 		'custom-header',
 		apply_filters(
 			'countrytheme_custom_header_args',
 			array(
 				'default-image'      => '',
-				'default-text-color' => 'ffffff',
+				'default-text-color' => 'fff',
 				'width'              => 2000,
 				'height'             => 850,
 				'flex-height'        => true,
 				'wp-head-callback'   => 'countrytheme_header_style',
+				'header-text' => true,
 			)
 		)
 	);
@@ -40,7 +42,8 @@ if ( ! function_exists( 'countrytheme_header_style' ) ) :
 	 *
 	 * @see countrytheme_custom_header_setup().
 	 */
-	function countrytheme_header_style() {
+	function countrytheme_header_style(): void
+	{
 		$header_text_color = get_header_textcolor();
 
 		/*
