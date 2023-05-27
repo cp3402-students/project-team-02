@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<nav id="page" class="site">
+<div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'countrytheme' ); ?></a>
 
 	<header id="masthead" class="site-header">
@@ -64,4 +64,27 @@
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
-	<div class="header-image"><?php if ( is_front_page()) the_header_image_tag(); ?></div>
+	<div class="header-image">
+		<?php if ( is_front_page()) :
+			the_header_image_tag(); ?>
+			<div class='header-image-overlay'>
+
+
+		<div class="header-image-group">
+				<h2>Welcome to the Country Music Family!</h2>
+				<p>Interested in joining the club? Let's have a chat.</p>
+
+			<div class="action-button">
+			<?php
+			$action_link = site_url('contact-us') ?>
+			<a href="<?php echo $action_link ?>" rel="bookmark">
+				Contact Us
+			</a>
+			</div>
+		</div>
+			</div>
+
+
+		<?php endif; ?>
+
+	</div>

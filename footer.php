@@ -121,7 +121,7 @@
 			<span class="sep"> | </span>
 			<a href="<?php echo esc_url( __( 'https://github.com/cp3402-students/project-team-02', 'countrytheme' ) ); ?>"><?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme by %s', 'countrytheme' ), 'CP3408 2023 Project Team 02' );
+				printf( esc_html__( 'Theme by %s', 'countrytheme' ), 'CP3402 2023 Project Team 02' );
 				?></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

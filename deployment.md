@@ -179,7 +179,7 @@ Automation can be achieved as follows:
 For this project, the team is encouraged to communicate face-to-face in weekly stand-up meetings or use an online meeting platform like _Discord_. These meet-up sessions are held to monitor the progress of each member, highlight roadblocks and make group decisions.
 
 ### Task Allocation
-The allocation and organisation of tasks is supported by _Trello_. In a meeting, a task is assigned to a team member in the board, categorised by type, set with a deadline and placed in a list depending on its status. When complete, that member can tick it and be reassigned. This system keeps everyone accountable and visualises the project's progression.
+The allocation and organisation of tasks is supported by _Trello_. In a meeting, a task is assigned to a team member in the board, categorised by type, set with a deadline and placed in a list depending on its status. When complete, that member can tick it and be reassigned. This system keeps everyone accountable and visualises the project's progression and priorities.
 
 ### Version Control
 
@@ -190,6 +190,7 @@ _GitHub_ is the primary means of remote source control management. Centralising 
 1. Download and install [_Discord_](https://discord.com/)
    1. See documentation [here](https://discord.com/developers/docs/intro)
    2. Alternatively, open it in browser
+   3. Alternatively, use [Slack](https://slack.com/intl/en-au)
 2. Have a stand-up meeting in-person or on _Discord_ to assign tasks
    1. Organise the date, time and place of the next meeting
 3. Set up a respective task on _Trello_
