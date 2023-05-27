@@ -19,10 +19,10 @@ This custom theme was created with contributors in mind, providing full customiz
 Within this documentation are the DevOps procedures for the custom theme created in team two’s CP3402 project. This runs through recommended processes for the development environment, relevant tools, and project management implementation to create a repeatable workflow.       
 * [deployment.md](deployment.md)
 ## Theme.md:
-Within this documentation…       
+Within this documentation is useful information for new developers using the Country Theme developed by CP3402 Project Team 02. Information includes feature information, files that may need editing, design decisions and more.
 * [theme.md](theme.md)
 ## Site.md:
-Within this documentation…       
+Within this documentation is useful information in relation to adding content to pages and posts, and how to add them to specific categories.
 * [site.md](site.md)
 
 ## Contributors
