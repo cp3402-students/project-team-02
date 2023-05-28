@@ -22,7 +22,7 @@ Within this documentation are DevOps procedures for the WordPress custom theme "
 Within this documentation is useful information for new developers using the Country Theme developed by CP3402 Project Team 02. Information includes feature information, files that may need editing, design decisions and more.
 * [theme.md](theme.md)
 ## Site.md:
-Within this documentation is useful information in relation to adding content to pages and posts, and how to add them to specific categories.
+Within this documentation is useful information in relation to adding and/or modifying content to pages and posts in a local development environment using _Local_ by _Flywheel_ and _WordPress_.
 * [site.md](site.md)
 
 ## Contributors
